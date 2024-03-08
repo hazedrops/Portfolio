@@ -1,0 +1,196 @@
+@import '_config';
+@import '_menu';
+@import '_projects';
+@import '_about';
+@import '_work';
+@import '_contact';
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  @include background;
+
+  background: $primary-color;
+  color: set-text-color($primary-color);
+  height: 100%;
+  margin: 0;
+  font-family: 'Segoe UI', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.5;
+}
+
+// Headings
+h1,
+h2,
+h3 {
+  margin: 0;
+  font-weight: 400;
+
+  &.lg-heading {
+    font-size: 3rem;
+
+    .text-secondary {
+      color: $secondary-color;
+    }
+
+    @include mediaMd {
+      line-height: 1;
+      margin-bottom: 0.7em;
+      font-size: 2.4em;
+    }
+  }
+
+  &.sm-heading {
+    width: 70vw;
+    font-size: 1.5rem;
+    margin-bottom: 3rem;
+    padding: 0.2rem 1rem;
+    background: rgba(lighten($primary-color, 2), 0.5);
+
+    @include mediaXxl {
+      padding: 1vh 20vw 1vh 1vw;
+    }
+
+    @include mediaMd {
+      font-size: 1.2em;
+    }
+  }
+}
+
+a {
+  color: #fff;
+  text-decoration: none;
+}
+
+header {
+  position: fixed;
+  z-index: 2;
+  width: 100%;
+}
+
+main {
+  min-height: calc(100vh - 60px); // Making a sticky footer on the bottom
+  padding-left: 5em;
+
+  @include mediaSm {
+    padding-left: 2em;
+  }
+  
+  // @include mediaXs {
+  //   padding-left: 2em;
+  // }
+
+  .icons {
+    margin-top: 1rem;
+
+    a {
+      padding: 0.4rem;
+
+      &:hover {
+        color: $secondary-color;
+        @include easeOut();
+      }
+    }
+  }
+
+  @include mediaLg {
+    padding: 4rem 0;
+  }
+}
+
+main#home {
+  overflow: hidden;
+  width: 100vw;
+  max-width: 95%;
+
+  h1 {
+    margin-top: 20vh;
+    font-size: 4em;
+
+    @include mediaXl {
+      font-size: 3em;
+    }
+
+    @include mediaSm {
+      margin-top: 15vh;
+      font-size: 2.5em;
+    }
+
+    @include mediaXs {
+      margin-top: 10vh;
+      font-size: 2em;
+    }
+  }
+
+  h2 {
+    @include mediaXs {
+      font-size: 1.1em;
+    }
+  }
+  
+
+  @include mediaLg {
+    padding-left: 10vw;
+  }  
+
+  @include mediaMd {
+    padding-left: 5vw;
+  } 
+}
+
+// Button Styles
+.btn {
+  display: block;
+  padding: 0.5rem 1rem;
+  border: 0;
+  margin-bottom: 0.3rem;
+
+  &:hover {
+    background: $secondary-color;
+    color: set-text-color($secondary-color);
+  }
+}
+
+.btn-dark {
+  @extend .btn;
+  background: darken($primary-color, 50);
+  color: #fff;
+}
+
+.btn-light {
+  @extend .btn;
+  background: lighten($primary-color, 50);
+  color: #000;
+}
+
+// Footer
+#main-footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1em;
+  background: darken($primary-color, 10);
+  color: set-text-color($primary-color);
+  height: 60px;
+  margin-top: 2em;
+
+  a {
+    display: inline-block;
+    margin: 0 1vh 0 1vh;
+    color: #fff;
+  }
+
+  a:hover {
+    transform: translate(1px, 1px);
+    text-shadow: 1px 1px 4px #fff;
+  }
+
+  @include mediaXs {
+    flex-direction: column;
+    font-size: 1em;
+    height: 70px;
+  }
+}

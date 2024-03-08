@@ -1,0 +1,150 @@
+.projectMain {
+  width: 70vw;
+  max-width: 50rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 3em auto 1em;
+
+  .lg-heading {
+    @include mediaXl {
+      font-size: 7vw;
+    }
+  }
+
+  .project-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .project-images {
+      display: grid;
+      grid-gap: 2em;
+      grid-auto-rows: 1fr;
+      grid-template-columns: repeat(2, 1fr);
+      justify-content: space-between;
+      margin-top: 4vh;
+
+      .project-image {
+        width: 38vw;
+        max-width: 25rem;
+        height: 55vh;
+
+        img {
+          width: 100%;
+          padding: 2em;
+        }
+
+        @include mediaLg {
+          height: 40vh;
+        }
+
+        @include mediaMd {
+          width: 60vw;
+          height: 30vh;
+        }
+      }
+
+      @include mediaMd {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+
+    .project-desc {
+      margin-top: 4vh;
+      display: flex;
+      flex-direction: column;
+
+      .text-secondary {
+        display: inline-block;
+        padding: 0.5em;
+        border-bottom: 1px solid $secondary-color;
+
+        @include mediaXs {
+          font-size: 1em;
+        }        
+      }
+
+      p {
+        overflow-wrap: break-word;
+        margin-top: .5em;
+      }
+
+      button {
+        display: flex;
+        justify-content: center;
+        width: 20%;
+        min-width: 10em;
+        font-size: 1em;
+        background: $secondary-color;
+        color: $primary-color;
+        padding: 0.85em 0.75em;
+        position: relative;
+        z-index: 1;
+        overflow: hidden;
+        border: none;
+        margin-top: 1em;
+
+        @include mediaXl {
+          width: 30%;
+        }
+
+        @include mediaSm {
+          width: 80%;
+        }
+      }
+
+      button:hover {
+        cursor: pointer;
+        color: #fff;
+        border: 0.1rem solid $secondary-color;
+      }
+
+      button::after {
+        content: '';
+        // width: 110%;
+        background: $primary-color;
+        position: absolute;
+        z-index: -1;
+        padding: 0.85em 0.75em;
+        display: block;
+        color: #fff;     
+        left: -20%;
+        right: -20%;
+        top: 0;
+        bottom: 0;
+        transform: skewX(-45deg) scale(0, 1);
+        transition: all 0.3s ease;
+        border: 0.1rem solid $primary-color;
+      }
+
+      button:hover::after {
+        transform: skewX(-45deg) scale(2, 1);
+        transition: all 0.3s ease-out;
+        color: #fff;
+        background-color: $primary-color;
+      }
+
+      .git-buttons {
+        display: flex;
+        justify-content: flex-start;
+        gap: 2em;
+
+        @include mediaSm {
+          flex-direction: column;
+          align-items: center;     
+          // justify-content: center;
+          gap: 1em;
+        }
+      }
+
+      @include mediaSm {
+        width: 90%;
+      }
+    }
+  }
+}
+
+
